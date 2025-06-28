@@ -90,41 +90,41 @@ export const theme = (mode) => ({
         ...(mode === 'light'
             ? {
                 primary: {
-                    main: '#D7C7F4', // Light purple
-                    light: '#FAF7FF', // White
-                    dark: '#AF9FCD', // Darker light purple
-                    bglight: '#fafafa', // Light background
-                    bgtheme: '#FAF7FF', // Theme background
-                    bg: '#AF9FCD' // Background color
+                    main: '#D7C7F4',
+                    light: '#FAF7FF',
+                    dark: '#AF9FCD',
+                    bglight: '#fafafa',
+                    bgtheme: '#FAF7FF',
+                    bg: '#AF9FCD'
                 },
                 text: {
                     primary: '#9975BA',
-                    secondary: 'rgba(0,0,0,0.5)', // Semi-transparent black text
+                    secondary: 'rgba(0,0,0,0.5)',
                 },
                 background: {
-                    default: '#FAF7FF', // Light mode default background
-                    paper: '#fff', // Light mode paper background
+                    default: '#FAF7FF',
+                    paper: '#fff',
                 },
-                divider: 'rgba(0,0,0,0.12)', // Light mode divider
+                divider: 'rgba(0,0,0,0.12)',
             }
             : {
                 primary: {
-                    main: '#34303d', // Dark primary
-                    light: '#3d3b41', // Lighter dark primary
-                    dark: '#2a2730', // Darker dark primary
-                    bglight: '#212025', // Dark background light
-                    bgtheme: '#212025', // Dark theme background
-                    bg: '#2a2730' // Dark background
+                    main: '#34303d',
+                    light: '#3d3b41',
+                    dark: '#2a2730',
+                    bglight: '#212025',
+                    bgtheme: '#212025',
+                    bg: '#2a2730'
                 },
                 text: {
                     primary: '#ffffff',
-                    secondary: 'rgba(255,255,255,0.7)', // Semi-transparent white text
+                    secondary: 'rgba(255,255,255,0.7)',
                 },
                 background: {
-                    default: '#212025', // Dark mode default background
-                    paper: '#2a2730', // Dark mode paper background
+                    default: '#212025',
+                    paper: '#2a2730',
                 },
-                divider: 'rgba(255,255,255,0.12)', // Dark mode divider
+                divider: 'rgba(255,255,255,0.12)',
             }
         )
     },
@@ -140,7 +140,7 @@ export const theme = (mode) => ({
         },
         h2: {
             fontFamily: 'Ubuntu, sans-serif',
-            color: 'text.primary', // This will be resolved by MUI based on palette.text.primary
+            color: 'text.primary',
             fontSize: 28,
             fontWeight: 500,
             '@media (max-width:600px)': {
@@ -161,28 +161,28 @@ export const theme = (mode) => ({
                 root: {
                     textTransform: 'none',
                     fontFamily: 'Open Sans, sans-serif',
-                    borderRadius: '8px', // Added from previous theme, as it's a good default
-                    boxShadow: '0px 2px 4px rgba(0,0,0,0.2)', // Added subtle shadow
+                    borderRadius: '8px', 
+                    boxShadow: '0px 2px 4px rgba(0,0,0,0.2)',
                 },
                 contained: {
                     fontFamily: 'Ubuntu, sans-serif',
-                    border: '1px solid', // Add border
-                    borderColor: mode === 'light' ? '#D7C7F4' : '#3d3b41', // Dynamic border color
-                    background: mode === 'light' ? '#D7C7F4' : '#34303d', // Dynamic background
-                    color: mode === 'light' ? '#000000' : '#ffffff', // Dynamic text color
+                    border: '1px solid',
+                    borderColor: mode === 'light' ? '#D7C7F4' : '#3d3b41',
+                    background: mode === 'light' ? '#D7C7F4' : '#34303d',
+                    color: mode === 'light' ? '#000000' : '#ffffff',
                     '&:hover': {
-                        background: mode === 'light' ? '#AF9FCD' : '#2a2730', // Dynamic hover background
-                        borderColor: mode === 'light' ? '#AF9FCD' : '#2a2730', // Dynamic hover border
-                        boxShadow: '0px 4px 8px rgba(0,0,0,0.3)', // Stronger shadow on hover
+                        background: mode === 'light' ? '#AF9FCD' : '#2a2730',
+                        borderColor: mode === 'light' ? '#AF9FCD' : '#2a2730',
+                        boxShadow: '0px 4px 8px rgba(0,0,0,0.3)',
                     },
                 },
                 outlined: {
                     fontFamily: 'Ubuntu, sans-serif',
-                    color: mode === 'light' ? '#000' : '#fff', // Dynamic text color
-                    borderColor: mode === 'light' ? '#9785BA' : '#3d3b41', // Dynamic border color
+                    color: mode === 'light' ? '#000' : '#fff',
+                    borderColor: mode === 'light' ? '#9785BA' : '#3d3b41',
                     '&:hover': {
-                        background: mode === 'light' ? '#AF9FCD' : '#2a2730', // Dynamic hover background
-                        borderColor: mode === 'light' ? '#AF9FCD' : '#2a2730', // Dynamic hover border
+                        background: mode === 'light' ? '#AF9FCD' : '#2a2730',
+                        borderColor: mode === 'light' ? '#AF9FCD' : '#2a2730',
                     }
                 }
             }
@@ -192,20 +192,20 @@ export const theme = (mode) => ({
                 root: {
                     '& .MuiOutlinedInput-root': {
                         borderRadius: '8px',
-                        backgroundColor: mode === 'light' ? '#fafafa' : '#424242', // Dynamic background color for input fields
-                        color: mode === 'light' ? '#000000' : '#e0e0e0', // Dynamic text color for input
+                        backgroundColor: mode === 'light' ? '#fafafa' : '#424242',
+                        color: mode === 'light' ? '#000000' : '#e0e0e0',
                         '& fieldset': {
-                            borderColor: mode === 'light' ? 'rgba(0,0,0,0.23)' : '#616161', // Dynamic border for input
+                            borderColor: mode === 'light' ? 'rgba(0,0,0,0.23)' : '#616161',
                         },
                         '&:hover fieldset': {
-                            borderColor: mode === 'light' ? 'rgba(0,0,0,0.87)' : '#9e9e9e', // Dynamic lighter border on hover
+                            borderColor: mode === 'light' ? 'rgba(0,0,0,0.87)' : '#9e9e9e',
                         },
                         '&.Mui-focused fieldset': {
-                            borderColor: mode === 'light' ? '#D7C7F4' : '#9c27b0', // Dynamic primary color on focus
+                            borderColor: mode === 'light' ? '#D7C7F4' : '#4c59f9',
                         },
                     },
                     '& .MuiInputLabel-root': {
-                        color: mode === 'light' ? 'rgba(0,0,0,0.6)' : '#bdbdbd', // Dynamic label color
+                        color: mode === 'light' ? 'rgba(0,0,0,0.6)' : '#bdbdbd',
                     },
                 },
             },
@@ -220,7 +220,7 @@ export const theme = (mode) => ({
         MuiRating: {
             styleOverrides: {
                 iconFilled: {
-                    color: '#00BF00',
+                    color: '#f5b554',
                 },
                 iconEmpty: {
                     color: mode === 'light' ? '#ccc' : '#757575', 
