@@ -1,44 +1,61 @@
-import React, { useState } from 'react';
-import { Box, Typography, FormControl, Select, MenuItem } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
+import { Box, Select, MenuItem, Typography } from '@mui/material'
+import { useEffect, useState } from 'react'
 
-const ChatFilter = ({ onFilterChange }) => {
-    const theme = useTheme();
-    const [filterOption, setFilterOption] = useState('All Ratings');
+export default function ChatFilter({ allChats, filterChats }) {
 
-    const handleChange = (event) => {
-        setFilterOption(event.target.value);
-        onFilterChange(event.target.value);
-    };
+    const [option, setOption] = useState('All Ratings')
+
+    const handleChange = (e) => {
+        setOption(e.target.value)
+    }
+
+    // FILTER CHATS
+    useEffect(() => {
+
+        if (option == 'All Ratings') {
+            filterChats(allChats)
+        }
+        else {
+            const filtered = allChats.filter(item => {
+
+                let found = false
+
+                item.chat.forEach(ch => {
+                    if (ch.rating == option) {
+                        found = true
+                    }
+                })
+
+                return found
+            })
+
+            filterChats(filtered)
+        }
+
+    }, [option])
 
     return (
-        <Box mb={3} sx={{ width: { xs: '100%', md: '200px' } }}>
-            <Typography variant="body2" sx={{ mb: 1, color: theme.palette.text.secondary }}>
+        <Box
+            mb={3}
+        >
+            <Typography fontSize={12} mb={0.5}>
                 Filter by rating
             </Typography>
-            <FormControl fullWidth size="small">
-                <Select
-                    value={filterOption}
-                    onChange={handleChange}
-                    sx={(theme) => ({
-                        borderRadius: '8px',
-                        '& .MuiOutlinedInput-notchedOutline': {
-                            borderColor: theme.palette.divider,
-                        },
-                        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                            borderColor: theme.palette.primary.main,
-                        },
-                        bgcolor: theme.palette.background.paper
-                    })}
-                >
-                    <MenuItem value="All Ratings">All Ratings</MenuItem>
-                    {[1, 2, 3, 4, 5].map(rating => (
-                        <MenuItem key={rating} value={rating}>{rating} Star{rating > 1 ? 's' : ''}</MenuItem>
-                    ))}
-                </Select>
-            </FormControl>
+            <Select
+                value={option}
+                onChange={handleChange}
+                size='small'
+                sx={{
+                    minWidth: { xs: 1, md: 160 },
+                }}
+            >
+                <MenuItem value='All Ratings'>All Ratings</MenuItem>
+                <MenuItem value={1}>1 Star</MenuItem>
+                <MenuItem value={2}>2 Stars</MenuItem>
+                <MenuItem value={3}>3 Stars</MenuItem>
+                <MenuItem value={4}>4 Stars</MenuItem>
+                <MenuItem value={5}>5 Stars</MenuItem>
+            </Select>
         </Box>
-    );
-};
-
-export default ChatFilter;
+    )
+}

@@ -586,7 +586,6 @@ const ChatView = ({ aiData, currentConversation, setCurrentConversation, onNavig
                         fontSize: { xs: '0.8rem', md: '1rem' },
                         color: theme.palette.text.primary,
                         borderColor: theme.palette.divider,
-                        // Removed explicit bgcolor and borderColor here as they are handled by MuiButton.outlined in theme.js
                     })}
                 >
                     Save
